@@ -22,7 +22,7 @@ import os
 print("Convert file CRLF to LF")
 dir_path = os.path.dirname(os.path.abspath(__file__))
 print("Current dir : " + dir_path)
-target_files = [dir_path+"/"+f for f in listdir(dir_path) if isfile(join(dir_path, f))]
+target_files = [dir_path+"/"+f for f in listdir(dir_path) if isfile(join(dir_path, f)) if(f.endswith(".c") or f.endswith(".cpp") or f.endswith(".h") or f.endswith(".hpp") or f.endswith(".sh"))]
 root_dirs = [f for f in listdir(dir_path) if isdir(join(dir_path, f))]
 def search_files(dir_from, dir_paths, out_files):
     for dir in dir_paths :
@@ -30,7 +30,7 @@ def search_files(dir_from, dir_paths, out_files):
         under_dirs = [f for f in listdir(fullpath) if isdir(join(fullpath, f))]
         if len(under_dirs) > 0 :
             search_files(fullpath, under_dirs, out_files)
-        files = [fullpath+"/"+f for f in listdir(fullpath) if isfile(join(fullpath, f))]
+        files = [fullpath+"/"+f for f in listdir(fullpath) if isfile(join(fullpath, f)) if(f.endswith(".c") or f.endswith(".cpp") or f.endswith(".h") or f.endswith(".hpp") or f.endswith(".sh"))]
         if len(files) > 0 :
             out_files += files
     pass
