@@ -1,27 +1,14 @@
 from os import listdir
 from os.path import isfile, join, isdir
 import os
-#import sys
-#from enum import Enum
-# class TYPE(Enum):
-#     CRLF2LF = 0
-#     LF2CRLF = 1
-# type = TYPE.CRLF2LF
-#for arg in sys.argv:
-#    print(arg)
-#    if arg == '-h':
-#        print("option \"-l\" : CRLF to LF (default)")
-#        print("option \"-c\" : LF to CRLF")
-#        pass
-#    if arg == '-l':
-#        pass
-#    if arg == '-c':
-#        type = TYPE.LF2CRLF
-#        pass
-#print("type : " + type)
-print("Convert file CRLF to LF")
+
+targets = [".c", ".cpp", ".h", ".hpp", ".sh"]
+def endswith(target_list):
+    #for i in target_list:   
+    pass
+
 dir_path = os.path.dirname(os.path.abspath(__file__))
-print("Current dir : " + dir_path)
+print("Current directory : " + dir_path)
 target_files = [dir_path+"/"+f for f in listdir(dir_path) if isfile(join(dir_path, f)) if(f.endswith(".c") or f.endswith(".cpp") or f.endswith(".h") or f.endswith(".hpp") or f.endswith(".sh"))]
 root_dirs = [f for f in listdir(dir_path) if isdir(join(dir_path, f))]
 def search_files(dir_from, dir_paths, out_files):
